@@ -4,19 +4,11 @@ API Client library for eBay seller services including ClientAlerts, Trade, etc. 
 
 Initialize Client with Credentials:
 
-	  ebayClient = ebayapi.NewProductionClient(nil)
-  	mustMapEnv(&ebayClient.AppID, "APP_ID", "")
-  	mustMapEnv(&ebayClient.DevID, "DEV_ID", "")
-  	mustMapEnv(&ebayClient.CertID, "CERT_ID", "")
-  	mustMapEnv(&ebayClient.AuthToken, "TOKEN", "")
-
-    func mustMapEnv(target *string, envKey string, useDefault string) {
-	    v := os.Getenv(envKey)
-	    if v == "" {
-	        v = useDefault
-	    }
-	        *target = v
-    }
+    ebayClient = ebayapi.NewProductionClient(nil)
+    mustMapEnv(&ebayClient.AppID, "APP_ID", "")
+    mustMapEnv(&ebayClient.DevID, "DEV_ID", "")
+    mustMapEnv(&ebayClient.CertID, "CERT_ID", "")
+    mustMapEnv(&ebayClient.AuthToken, "TOKEN", "")
     
     func mustMapEnv(target *string, envKey string, useDefault string) {
       v := os.Getenv(envKey)
@@ -32,5 +24,5 @@ Initialize Client with Credentials:
     
 Initialize APIs
 
-    alertsAPI := ebayapi.NewClientAlertsAPI(ebayClient, log),
-		tradingAPI := ebayapi.NewTradingAPI(ebayClient, log),
+    alertsAPI := ebayapi.NewClientAlertsAPI(ebayClient, log)
+    tradingAPI := ebayapi.NewTradingAPI(ebayClient, log)
